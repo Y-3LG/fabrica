@@ -24,7 +24,7 @@
     --green-deep:#7FA84C;
   }
   *{box-sizing:border-box;}
-  body{margin:0; background:var(--cream); color:var(--ink); font-family:'Quicksand', system-ui, sans-serif; font-weight:500; line-height:1.55; overflow-x:hidden;}
+  body{margin:0; background:var(--cream); color:var(--ink); font-family:'Quicksand', system-ui, sans-serif; font-weight:500; line-height:1.55; overflow-x:hidden; overflow-wrap:break-word;}
   h1,h2,h3{font-family:'Permanent Marker', cursive; font-weight:400; line-height:1.15; letter-spacing:0.5px; margin:0;}
   a{color:var(--pink-deep);}
   a:hover{color:var(--blue-deep);}
@@ -70,22 +70,44 @@
   .pillar p{margin:0; font-size:15px;}
 
   @media (max-width: 900px){
-    section, footer{padding:64px 28px;}
-    #hero{padding-top:56px; padding-bottom:72px;}
+    section, footer{padding:44px 22px;}
+    #hero{padding-top:40px; padding-bottom:48px;}
     #hero h1{font-size:32px; padding:0 26px;}
     #hero .title-row{display:block; position:relative;}
     #hero .title-arrow{position:absolute; top:50%; transform:translateY(-50%); font-size:22px;}
     #hero .title-arrow:first-child{left:0;}
     #hero .title-arrow:last-child{right:0;}
-    .grid-3{grid-template-columns:1fr;}
-    .grid-2{grid-template-columns:1fr;}
+    .grid-3{grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px;}
+    .grid-3 > *:nth-child(3):last-child{grid-column:1 / -1;}
+    .grid-2{grid-template-columns:1fr; gap:14px;}
+    #historia, #historia .wrap{gap:24px;}
+    #antojos, #antojos .wrap{gap:24px;}
     #mision-dark h2{font-size:28px;}
+    #mision-dark > .wrap > p{margin-bottom:28px;}
+    #ruta h2{margin-bottom:24px;}
+    #como-apoyar h2{margin-bottom:22px;}
+    .placeholder{aspect-ratio:1/1; font-size:13px; padding:14px;}
+    footer{padding-top:28px; padding-bottom:90px;}
   }
 
   @media (max-width: 360px){
     #hero h1{font-size:26px; padding:0 22px;}
     #hero .title-arrow{font-size:18px;}
   }
+
+  .floating-cta{display:none;}
+  @media (max-width: 900px){
+    .floating-cta{
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      position:fixed; left:16px; right:16px; bottom:16px; z-index:50;
+      background:var(--ink); color:var(--cream); font-family:'Quicksand', sans-serif; font-weight:700; font-size:16px;
+      padding:14px 20px; border-radius:999px; text-decoration:none;
+      box-shadow:0 6px 0 var(--pink-deep), 0 10px 24px rgba(0,0,0,0.25);
+      transform:translateY(120%); animation:floatUp 0.5s 0.6s ease forwards;
+      transition:opacity 0.3s ease;
+    }
+  }
+  @keyframes floatUp{ to{ transform:translateY(0); } }
 </style>
 </head>
 <body>
@@ -127,7 +149,7 @@
   </div>
 </section>
 
-<section style="padding-top:20px; display:flex; gap:56px; align-items:center; flex-wrap:wrap;">
+<section id="historia" style="padding-top:20px; display:flex; gap:56px; align-items:center; flex-wrap:wrap;">
   <div class="wrap" style="display:flex; gap:56px; align-items:center; flex-wrap:wrap; padding:0;">
     <div style="flex:1 1 420px; min-width:280px;">
       <span class="eyebrow">Nuestra historia</span>
@@ -174,7 +196,7 @@
   </div>
 </section>
 
-<section style="display:flex; gap:60px; flex-wrap:wrap;">
+<section id="antojos" style="display:flex; gap:60px; flex-wrap:wrap;">
   <div class="wrap" style="display:flex; gap:60px; flex-wrap:wrap; padding:0;">
     <div style="flex:1 1 340px; min-width:280px;">
       <h2 style="font-size:34px; margin-bottom:10px;">Los antojos de los niños</h2>
@@ -190,7 +212,7 @@
   </div>
 </section>
 
-<section style="background:var(--pink);">
+<section id="ruta" style="background:var(--pink);">
   <div class="wrap">
     <h2 style="font-size:34px; margin-bottom:44px; text-align:center;">La ruta: acción</h2>
     <div class="grid-3">
@@ -233,7 +255,7 @@
   </div>
 </section>
 
-<section style="background:var(--blue);">
+<section id="como-apoyar" style="background:var(--blue);">
   <div class="wrap" style="max-width:1000px;">
     <h2 style="font-size:34px; margin-bottom:40px; text-align:center;">&iquest;Cómo puedes apoyar?</h2>
     <div class="grid-2">
@@ -275,6 +297,24 @@
   <p style="font-family:'Permanent Marker', cursive; margin:0; font-size:20px; color:var(--yellow);">Fábrica de Antojos</p>
   <p style="margin:0; font-size:14px; opacity:0.8;">Un proyecto de Alexandra Caraballo &middot; La Guaira, Venezuela</p>
 </footer>
+
+<a class="floating-cta" href="#apoyar" id="floating-cta">
+  Quiero apoyar
+  <svg width="16" height="12" viewBox="0 0 18 14" fill="none"><path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+
+<script>
+  var cta = document.getElementById('floating-cta');
+  var target = document.getElementById('apoyar');
+  if (cta && target && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        cta.style.opacity = entry.isIntersecting ? '0' : '1';
+        cta.style.pointerEvents = entry.isIntersecting ? 'none' : 'auto';
+      });
+    }, { threshold: 0.15 }).observe(target);
+  }
+</script>
 
 </body>
 </html>
