@@ -72,17 +72,19 @@
   @media (max-width: 900px){
     section, footer{padding:64px 28px;}
     #hero{padding-top:56px; padding-bottom:72px;}
-    #hero h1{font-size:36px; white-space:nowrap;}
-    #hero .title-row{gap:8px;}
-    #hero .title-arrow{font-size:26px;}
+    #hero h1{font-size:32px; padding:0 26px;}
+    #hero .title-row{display:block; position:relative;}
+    #hero .title-arrow{position:absolute; top:50%; transform:translateY(-50%); font-size:22px;}
+    #hero .title-arrow:first-child{left:0;}
+    #hero .title-arrow:last-child{right:0;}
     .grid-3{grid-template-columns:1fr;}
     .grid-2{grid-template-columns:1fr;}
     #mision-dark h2{font-size:28px;}
   }
 
   @media (max-width: 360px){
-    #hero h1{font-size:30px;}
-    #hero .title-arrow{font-size:22px;}
+    #hero h1{font-size:26px; padding:0 22px;}
+    #hero .title-arrow{font-size:18px;}
   }
 </style>
 </head>
