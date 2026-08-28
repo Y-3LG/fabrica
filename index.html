@@ -54,6 +54,7 @@
   #hero{position:relative; padding-top:96px; padding-bottom:120px; display:flex; flex-direction:column; align-items:center; text-align:center;}
   #hero .title-row{display:flex; align-items:center; gap:28px;}
   #hero h1{font-size:78px;}
+  #hero .title-arrow{font-family:'Quicksand', sans-serif; font-weight:600; font-size:44px; line-height:1; color:var(--ink); flex-shrink:0;}
   #hero .tag{background:var(--green); padding:10px 22px; border-radius:6px; margin-top:20px; transform:rotate(-1deg);}
   #hero .tag p{margin:0; font-weight:700; font-size:19px;}
   #hero .byline{margin:14px 0 0 0; font-size:14px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:rgba(38,34,32,0.6);}
@@ -71,12 +72,17 @@
   @media (max-width: 900px){
     section, footer{padding:64px 28px;}
     #hero{padding-top:56px; padding-bottom:72px;}
-    #hero h1{font-size:44px;}
-    #hero .title-row{gap:14px;}
-    #hero .title-row svg{width:20px; height:34px;}
+    #hero h1{font-size:36px; white-space:nowrap;}
+    #hero .title-row{gap:8px;}
+    #hero .title-arrow{font-size:26px;}
     .grid-3{grid-template-columns:1fr;}
     .grid-2{grid-template-columns:1fr;}
     #mision-dark h2{font-size:28px;}
+  }
+
+  @media (max-width: 360px){
+    #hero h1{font-size:30px;}
+    #hero .title-arrow{font-size:22px;}
   }
 </style>
 </head>
@@ -97,9 +103,9 @@
   </svg>
 
   <div class="title-row">
-    <svg width="34" height="56" viewBox="0 0 34 56" style="flex-shrink:0;"><path d="M26,8 L8,28 L26,48" fill="none" stroke="var(--ink)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="title-arrow" aria-hidden="true">&lt;</span>
     <h1>FÁBRICA DE<br>ANTOJOS</h1>
-    <svg width="34" height="56" viewBox="0 0 34 56" style="flex-shrink:0; transform:scaleX(-1);"><path d="M26,8 L8,28 L26,48" fill="none" stroke="var(--ink)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="title-arrow" aria-hidden="true">&gt;</span>
   </div>
 
   <div class="tag"><p>Un detalle para nosotros, el mundo entero para ellos.</p></div>
