@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fábrica de Antojos — Un detalle para nosotros, el mundo entero para ellos</title>
+<meta name="description" content="Iniciativa de Alexandra Caraballo que cumple los antojos y deseos de niños y familias afectadas en La Guaira, Venezuela. Conoce el proyecto y apoya.">
+<meta property="og:title" content="Fábrica de Antojos">
+<meta property="og:description" content="Un detalle para nosotros, el mundo entero para ellos.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:,">
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&amp;family=Quicksand:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF6EE;
+    --ink:#262220;
+    --pink:#F3C7D6;
+    --pink-deep:#E68FAE;
+    --yellow:#F2CE63;
+    --yellow-deep:#D9A72A;
+    --blue:#A9D9E8;
+    --blue-deep:#5FA9C2;
+    --green:#B9D98A;
+    --green-deep:#7FA84C;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--cream); color:var(--ink); font-family:'Quicksand', system-ui, sans-serif; font-weight:500; line-height:1.55; overflow-x:hidden;}
+  h1,h2,h3{font-family:'Permanent Marker', cursive; font-weight:400; line-height:1.15; letter-spacing:0.5px; margin:0;}
+  a{color:var(--pink-deep);}
+  a:hover{color:var(--blue-deep);}
+  section, footer{padding:96px 80px;}
+  .torn{
+    clip-path: polygon(
+      0% 0%, 100% 0%, 100% 100%,
+      96% 92%, 92% 100%, 88% 91%, 84% 99%, 80% 93%, 76% 100%,
+      72% 94%, 68% 99%, 64% 92%, 60% 100%, 56% 94%, 52% 99%,
+      48% 92%, 44% 100%, 40% 94%, 36% 99%, 32% 92%, 28% 100%,
+      24% 94%, 20% 99%, 16% 92%, 12% 100%, 8% 94%, 4% 99%, 0% 93%
+    );
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--ink); color:var(--cream); font-family:'Quicksand', sans-serif; font-weight:700; font-size:18px;
+    padding:16px 32px; border-radius:999px; text-decoration:none;
+    box-shadow:4px 4px 0 var(--pink-deep); transition:transform 0.15s ease;
+  }
+  .btn:hover{color:var(--cream); transform:translate(-2px,-2px);}
+  .eyebrow{display:inline-block; background:var(--yellow); color:var(--ink); font-weight:700; font-size:14px; letter-spacing:1px; text-transform:uppercase; padding:6px 16px; border-radius:999px;}
+  .placeholder{border:3px dashed rgba(38,34,32,0.28); border-radius:18px; display:flex; align-items:center; justify-content:center; text-align:center; color:rgba(38,34,32,0.55); font-weight:600; font-size:15px; padding:24px; aspect-ratio:4/3;}
+  .grid-3{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:26px;}
+  .grid-2{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:22px;}
+  .wrap{max-width:1180px; margin:0 auto;}
+
+  #hero{position:relative; padding-top:96px; padding-bottom:120px; display:flex; flex-direction:column; align-items:center; text-align:center;}
+  #hero .title-row{display:flex; align-items:center; gap:28px;}
+  #hero h1{font-size:78px;}
+  #hero .tag{background:var(--green); padding:10px 22px; border-radius:6px; margin-top:20px; transform:rotate(-1deg);}
+  #hero .tag p{margin:0; font-weight:700; font-size:19px;}
+  #hero .byline{margin:14px 0 0 0; font-size:14px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:rgba(38,34,32,0.6);}
+  #hero .btn{margin-top:40px;}
+  .doodle{position:absolute;}
+
+  #mision-dark{background:var(--ink); color:var(--cream);}
+  #mision-dark h2{color:var(--yellow); font-size:36px; margin-bottom:16px;}
+  #mision-dark > .wrap > p{max-width:680px; font-size:18px; margin:0 0 56px 0;}
+  .pillar{border-radius:16px; padding:28px 26px; color:var(--ink);}
+  .pillar .num{font-family:'Permanent Marker', cursive; font-size:40px; margin-bottom:8px;}
+  .pillar h3{font-family:'Quicksand', sans-serif; font-weight:700; font-size:18px; margin:0 0 8px 0;}
+  .pillar p{margin:0; font-size:15px;}
+
+  @media (max-width: 900px){
+    section, footer{padding:64px 28px;}
+    #hero{padding-top:56px; padding-bottom:72px;}
+    #hero h1{font-size:44px;}
+    #hero .title-row{gap:14px;}
+    #hero .title-row svg{width:20px; height:34px;}
+    .grid-3{grid-template-columns:1fr;}
+    .grid-2{grid-template-columns:1fr;}
+    #mision-dark h2{font-size:28px;}
+  }
+</style>
+</head>
+<body>
+
+<section id="hero">
+  <svg class="doodle" width="120" height="120" viewBox="0 0 120 120" style="top:20px; left:20px;">
+    <path d="M15,70 C12,35 45,18 75,28 C104,38 108,72 82,88 C55,104 18,92 22,68 C24,56 40,50 52,58" fill="none" stroke="var(--pink)" stroke-width="9" stroke-linecap="round"/>
+  </svg>
+  <svg class="doodle" width="100" height="100" viewBox="0 0 100 100" style="top:28px; right:32px;">
+    <circle cx="50" cy="50" r="30" fill="none" stroke="var(--blue)" stroke-width="9" stroke-dasharray="10 14" stroke-linecap="round"/>
+  </svg>
+  <svg class="doodle" width="90" height="70" viewBox="0 0 90 70" style="bottom:16px; left:60px;">
+    <path d="M5,10 Q25,-4 45,10 T85,10" fill="none" stroke="var(--yellow-deep)" stroke-width="8" stroke-linecap="round"/>
+  </svg>
+  <svg class="doodle" width="110" height="90" viewBox="0 0 110 90" style="bottom:0; right:36px;">
+    <path d="M10,50 C30,80 70,80 95,45" fill="none" stroke="var(--green)" stroke-width="9" stroke-linecap="round"/>
+  </svg>
+
+  <div class="title-row">
+    <svg width="34" height="56" viewBox="0 0 34 56" style="flex-shrink:0;"><path d="M26,8 L8,28 L26,48" fill="none" stroke="var(--ink)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h1>FÁBRICA DE<br>ANTOJOS</h1>
+    <svg width="34" height="56" viewBox="0 0 34 56" style="flex-shrink:0; transform:scaleX(-1);"><path d="M26,8 L8,28 L26,48" fill="none" stroke="var(--ink)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+
+  <div class="tag"><p>Un detalle para nosotros, el mundo entero para ellos.</p></div>
+  <p class="byline">by Alexandra Caraballo</p>
+
+  <a class="btn" href="#apoyar">
+    Quiero apoyar
+    <svg width="18" height="14" viewBox="0 0 18 14" fill="none"><path d="M1 7H17M17 7L11 1M17 7L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</section>
+
+<section style="padding-top:20px; display:flex; justify-content:center;">
+  <div class="torn" style="background:var(--pink); max-width:760px; padding:40px 36px 52px 36px; transform:rotate(0.6deg);">
+    <h2 style="font-size:34px; margin-bottom:18px;">Sanar el dolor del alma</h2>
+    <p style="margin:0 0 14px 0; font-size:17px;">La ayuda humanitaria clásica (comida, ropa, medicinas) es vital para la supervivencia física. Sin embargo, el trauma emocional de haberlo perdido todo puede dejar cicatrices de por vida.</p>
+    <p style="margin:0; font-size:17px;">Presenciar de cerca la tristeza y el apagón emocional de los más pequeños en los refugios nos obligó a pensar diferente: necesitábamos devolverles el color, el juego y la ilusión de inmediato.</p>
+  </div>
+</section>
+
+<section style="padding-top:20px; display:flex; gap:56px; align-items:center; flex-wrap:wrap;">
+  <div class="wrap" style="display:flex; gap:56px; align-items:center; flex-wrap:wrap; padding:0;">
+    <div style="flex:1 1 420px; min-width:280px;">
+      <span class="eyebrow">Nuestra historia</span>
+      <h2 style="font-size:34px; margin:16px 0 18px 0;">El poder de un deseo</h2>
+      <p style="margin:0 0 14px 0; font-size:17px;">En nuestra primera visita a un grupo de personas en La Guaira que albergaba a 150 personas, les hicimos una simple pregunta a los pequeños: &ldquo;&iquest;Qué antojo tienes? &iquest;Qué quieren hoy?&rdquo;.</p>
+      <p style="margin:0 0 14px 0; font-size:17px;">Pidieron hamburguesas, helados, refrescos y libros para colorear. Lograr cumplir el 100% de esos antojos nos enseñó el inmenso impacto psicológico de sentirse escuchados, válidos y especiales.</p>
+      <p style="margin:0; font-size:17px;">Cumplir con el 100% de estas peticiones &mdash; desde una merienda familiar hasta pequeños insumos de confort &mdash; nos demostró que escuchar sus voces devuelve la dignidad y la calma a todo el núcleo familiar.</p>
+    </div>
+    <div style="flex:0 0 auto; display:flex; flex-direction:column; gap:28px; align-items:center;">
+      <div style="text-align:center;">
+        <div style="font-family:'Permanent Marker', cursive; font-size:56px; color:var(--yellow-deep);">150</div>
+        <div style="font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:1px;">personas</div>
+      </div>
+      <div style="text-align:center; position:relative;">
+        <div style="font-family:'Permanent Marker', cursive; font-size:64px; color:var(--pink-deep);">60</div>
+        <div style="font-weight:700; font-size:16px; text-transform:uppercase; letter-spacing:1px;">niños</div>
+        <svg width="60" height="30" viewBox="0 0 60 30" style="position:absolute; top:-18px; right:-40px;"><path d="M2,15 Q17,2 32,15 T58,15" fill="none" stroke="var(--blue-deep)" stroke-width="5" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mision-dark">
+  <div class="wrap">
+    <h2>La misión: proteger el núcleo</h2>
+    <p>Nuestro propósito es resguardar la infancia del niño cuidando la salud emocional y la tranquilidad de las familias que los sostienen.</p>
+    <div class="grid-3">
+      <div class="pillar" style="background:var(--yellow);">
+        <div class="num" style="color:var(--yellow-deep);">01.</div>
+        <h3>Abordaje en el terreno</h3>
+        <p>Caminamos las zonas afectadas buscando activamente a las familias para escuchar de cerca sus anhelos específicos.</p>
+      </div>
+      <div class="pillar" style="background:var(--blue);">
+        <div class="num" style="color:var(--blue-deep);">02.</div>
+        <h3>Deseos y dignidad</h3>
+        <p>Llevamos el regalo exacto solicitado por el niño e insumos de bienestar directo para devolverles la ilusión y la alegría.</p>
+      </div>
+      <div class="pillar" style="background:var(--pink);">
+        <div class="num" style="color:var(--pink-deep);">03.</div>
+        <h3>Soporte al cuidador</h3>
+        <p>Entendemos que un padre en esta situación está física y mentalmente cansado. Les brindamos café, abrigo y elementos esenciales de descanso.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="display:flex; gap:60px; flex-wrap:wrap;">
+  <div class="wrap" style="display:flex; gap:60px; flex-wrap:wrap; padding:0;">
+    <div style="flex:1 1 340px; min-width:280px;">
+      <h2 style="font-size:34px; margin-bottom:10px;">Los antojos de los niños</h2>
+      <p style="font-weight:700; font-size:15px; text-transform:uppercase; letter-spacing:1px; color:var(--pink-deep); margin:0 0 20px 0;">Deseos con nombre y apellido</p>
+      <p style="font-size:17px; margin:0;">Cuando la realidad se vuelve difícil, un juguete o un dulce no es un lujo: es un refugio para el alma. Nos enfocamos exclusivamente en cumplir los anhelos más puros que nos piden directamente los pequeños.</p>
+    </div>
+    <div style="flex:1 1 380px; min-width:280px; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:20px;">
+      <div style="background:var(--pink); border-radius:16px; padding:22px 20px;"><p style="margin:0; font-size:15px; font-weight:600;">Peluches de unicornio o juguetes suaves para abrazar y sentirse acompañados por las noches.</p></div>
+      <div style="background:var(--blue); border-radius:16px; padding:22px 20px;"><p style="margin:0; font-size:15px; font-weight:600;">Trajes de superhéroes, como Spider-Man, para revivir la ilusión y jugar en comunidad.</p></div>
+      <div style="background:var(--yellow); border-radius:16px; padding:22px 20px;"><p style="margin:0; font-size:15px; font-weight:600;">Libros para colorear y creyones que llenan su día de luz y estimulan su mente.</p></div>
+      <div style="background:var(--green); border-radius:16px; padding:22px 20px;"><p style="margin:0; font-size:15px; font-weight:600;">Antojos dulces &mdash; chocolates, helados o refrescos &mdash; que les devuelven por un instante la cotidianidad.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--pink);">
+  <div class="wrap">
+    <h2 style="font-size:34px; margin-bottom:44px; text-align:center;">La ruta: acción</h2>
+    <div class="grid-3">
+      <div style="background:var(--cream); border-radius:14px; padding:24px 22px;"><h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; margin:0 0 8px 0; text-transform:uppercase; letter-spacing:0.5px;">Censo en terreno</h3><p style="margin:0; font-size:14px;">Ubicamos a las familias afectadas y levantamos listas personalizadas de antojos y necesidades.</p></div>
+      <div style="background:var(--cream); border-radius:14px; padding:24px 22px;"><h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; margin:0 0 8px 0; text-transform:uppercase; letter-spacing:0.5px;">Conexión</h3><p style="margin:0; font-size:14px;">Publicamos las necesidades específicas de los niños y las peticiones requeridas por sus padres.</p></div>
+      <div style="background:var(--cream); border-radius:14px; padding:24px 22px;"><h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; margin:0 0 8px 0; text-transform:uppercase; letter-spacing:0.5px;">Logística</h3><p style="margin:0; font-size:14px;">Adquirimos, clasificamos y empaquetamos individualmente cada deseo con nombre y apellido.</p></div>
+      <div style="background:var(--cream); border-radius:14px; padding:24px 22px;"><h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; margin:0 0 8px 0; text-transform:uppercase; letter-spacing:0.5px;">Entrega</h3><p style="margin:0; font-size:14px;">Llevamos la ayuda directo a las familias y a los niños.</p></div>
+      <div style="background:var(--cream); border-radius:14px; padding:24px 22px;"><h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; margin:0 0 8px 0; text-transform:uppercase; letter-spacing:0.5px;">Protección</h3><p style="margin:0; font-size:14px;">Cuidamos su dignidad. Nunca se muestra el rostro de ningún beneficiario.</p></div>
+      <div style="background:var(--cream); border-radius:14px; padding:24px 22px;"><h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; margin:0 0 8px 0; text-transform:uppercase; letter-spacing:0.5px;">Evidencia</h3><p style="margin:0; font-size:14px;">Compartimos las fotos de las entregas llegando a sus manos como prueba de transparencia.</p></div>
+    </div>
+    <p style="text-align:center; max-width:640px; margin:40px auto 0 auto; font-weight:700; font-size:16px;">Un modelo transparente que conecta directamente a los colaboradores con los niños y familiares que hoy se encuentran vulnerables en La Guaira.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2 style="font-size:34px; margin-bottom:10px;">Las entregas, en fotos</h2>
+    <p style="font-size:16px; margin:0 0 32px 0; color:rgba(38,34,32,0.7);">[Espacio reservado &mdash; aquí van fotos y/o videos reales de las entregas, apenas los tengamos.]</p>
+    <div class="grid-3">
+      <div class="placeholder" style="background:rgba(169,217,232,0.25);">Foto de entrega</div>
+      <div class="placeholder" style="background:rgba(243,199,214,0.3);">Foto de entrega</div>
+      <div class="placeholder" style="background:rgba(185,217,138,0.3);">Video de entrega</div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:20px; padding-bottom:60px; display:flex; justify-content:center;">
+  <div class="torn" style="background:var(--green); max-width:760px; padding:40px 36px 52px 36px; transform:rotate(-0.6deg);">
+    <h2 style="font-size:30px; margin-bottom:6px;">Unidos por La Guaira</h2>
+    <p style="font-weight:700; font-size:16px; margin:0 0 18px 0;">Ayúdame a dar alivio a quienes hoy pasan noches difíciles</p>
+    <p style="margin:0 0 14px 0; font-size:16px;">La Guaira ha vuelto a ser el epicentro de un gran dolor. Hoy muchas familias damnificadas necesitan un techo, abrigo y una mano amiga ante la incertidumbre.</p>
+    <p style="margin:0; font-size:16px;">No puedo lograr esto sola. Cada juguete para un niño y cada pequeño gesto para dar comodidad o abrigo a su madre o padre es un paso hacia la reconstrucción emocional de estos hogares.</p>
+  </div>
+</section>
+
+<section style="padding-top:20px; padding-bottom:90px; display:flex; justify-content:center;">
+  <div style="max-width:720px; text-align:center;">
+    <p style="font-family:'Permanent Marker', cursive; font-size:26px; margin:0 0 20px 0;">&ldquo;Acompáñenme en este camino. Ustedes son la parte fundamental para hacer posible cada una de estas sonrisas y momentos de comodidad.&rdquo;</p>
+    <p style="font-size:15px; color:rgba(38,34,32,0.7); margin:0;">Para mí, la transparencia y la confianza lo son todo. Por eso, documento cada paso de este camino &mdash; las compras, el empaquetado y la entrega directa a las familias afectadas &mdash; a través de mis historias de Instagram.</p>
+  </div>
+</section>
+
+<section style="background:var(--blue);">
+  <div class="wrap" style="max-width:1000px;">
+    <h2 style="font-size:34px; margin-bottom:40px; text-align:center;">&iquest;Cómo puedes apoyar?</h2>
+    <div class="grid-2">
+      <div style="background:var(--pink); border-radius:16px; padding:28px 26px;"><h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:19px; margin:0 0 10px 0;">Apadrina un antojo o alivio</h3><p style="margin:0; font-size:15px;">Sigue nuestras historias en Instagram y comprométete a donar un juguete específico para un niño, o elementos que los padres necesiten &mdash; mantas, colchonetas o termos.</p></div>
+      <div style="background:var(--yellow); border-radius:16px; padding:28px 26px;"><h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:19px; margin:0 0 10px 0;">Aportes de comodidad</h3><p style="margin:0; font-size:15px;">Para aquellos anhelos difíciles de recolectar en especie, recibimos aportes monetarios con absoluta claridad de cuentas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="apoyar" style="display:flex; justify-content:center;">
+  <div style="max-width:900px; width:100%; text-align:center;">
+    <h2 style="font-size:34px; margin-bottom:44px;">Cuentas de apoyo económico</h2>
+    <div class="grid-3" style="text-align:left;">
+      <div style="background:var(--blue); border-radius:14px; padding:22px 20px;">
+        <h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; margin:0 0 10px 0; text-transform:uppercase; letter-spacing:0.5px;">Zelle</h3>
+        <p style="margin:0; font-size:15px; font-weight:700;">Alexandra Caraballo Arriaran</p>
+        <p style="margin:6px 0 0 0; font-size:14px;">aleccaraballo@gmail.com</p>
+      </div>
+      <div style="background:var(--green); border-radius:14px; padding:22px 20px;">
+        <h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; margin:0 0 10px 0; text-transform:uppercase; letter-spacing:0.5px;">Datos bancarios</h3>
+        <p style="margin:0; font-size:14px;">Cuenta corriente &mdash; Banco Mercantil</p>
+        <p style="margin:6px 0 0 0; font-size:14px; font-weight:700;">01050289601289048053</p>
+        <p style="margin:6px 0 0 0; font-size:14px;">RIF/CI: 27448689</p>
+      </div>
+      <div style="background:var(--pink); border-radius:14px; padding:22px 20px;">
+        <h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:16px; margin:0 0 10px 0; text-transform:uppercase; letter-spacing:0.5px;">Binance</h3>
+        <p style="margin:0; font-size:14px;">aleccaraballo@gmail.com</p>
+      </div>
+    </div>
+
+    <a class="btn" href="https://wa.me/13214670711" style="margin-top:44px;">
+      Escríbeme por WhatsApp
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1a8 8 0 00-6.9 12L1 17l4.1-1.1A8 8 0 109 1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer style="background:var(--ink); color:var(--cream); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding-top:44px; padding-bottom:44px;">
+  <p style="font-family:'Permanent Marker', cursive; margin:0; font-size:20px; color:var(--yellow);">Fábrica de Antojos</p>
+  <p style="margin:0; font-size:14px; opacity:0.8;">Un proyecto de Alexandra Caraballo &middot; La Guaira, Venezuela</p>
+</footer>
+
+</body>
+</html>
