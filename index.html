@@ -48,7 +48,14 @@
   }
   .btn:hover{color:var(--cream); transform:translate(-2px,-2px);}
   .eyebrow{display:inline-block; background:var(--yellow); color:var(--ink); font-weight:700; font-size:14px; letter-spacing:1px; text-transform:uppercase; padding:6px 16px; border-radius:999px;}
-  .placeholder{border:3px dashed rgba(38,34,32,0.28); border-radius:18px; display:flex; align-items:center; justify-content:center; text-align:center; color:rgba(38,34,32,0.55); font-weight:600; font-size:15px; padding:24px; aspect-ratio:4/3;}
+  .media-box{position:relative; border-radius:18px; overflow:hidden; aspect-ratio:4/3; background:rgba(38,34,32,0.08);}
+  .media-box video, .media-box .carousel-slide{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  .media-tag{position:absolute; top:10px; left:10px; z-index:2; background:rgba(38,34,32,0.75); color:var(--cream); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; padding:4px 10px; border-radius:999px;}
+  .carousel-slide{opacity:0; transition:opacity 1s ease;}
+  .carousel-slide.is-active{opacity:1;}
+  .carousel-dots{position:absolute; bottom:10px; left:0; right:0; display:flex; justify-content:center; gap:6px; z-index:2;}
+  .dot{width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.55);}
+  .dot.is-active{background:var(--cream);}
   .grid-3{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:26px;}
   .grid-2{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:22px;}
   .wrap{max-width:1180px; margin:0 auto;}
@@ -89,7 +96,7 @@
     #mision-dark > .wrap > p{margin-bottom:28px;}
     #ruta h2{margin-bottom:24px;}
     #como-apoyar h2{margin-bottom:22px;}
-    .placeholder{aspect-ratio:1/1; font-size:13px; padding:14px;}
+    .media-box{aspect-ratio:1/1;}
     footer{padding-top:28px; padding-bottom:90px;}
   }
 
@@ -151,7 +158,10 @@
   </a>
 </section>
 
-<section class="reveal" style="padding-top:20px; display:flex; justify-content:center;">
+<section class="reveal" style="padding-top:20px; display:flex; justify-content:center; position:relative;">
+  <svg class="doodle" width="80" height="80" viewBox="0 0 70 70" style="top:24px; left:-26px;" aria-hidden="true">
+    <path d="M35,4 L43,26 L67,26 L47,40 L55,63 L35,49 L15,63 L23,40 L3,26 L27,26 Z" fill="none" stroke="var(--yellow-deep)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
   <div class="torn" style="background:var(--pink); max-width:760px; padding:40px 36px 52px 36px; transform:rotate(0.6deg);">
     <h2 style="font-size:34px; margin-bottom:18px;">Sanar el dolor del alma</h2>
     <p style="margin:0 0 14px 0; font-size:17px;">La ayuda humanitaria clásica (comida, ropa, medicinas) es vital para la supervivencia física. Sin embargo, el trauma emocional de haberlo perdido todo puede dejar cicatrices de por vida.</p>
@@ -206,7 +216,10 @@
   </div>
 </section>
 
-<section id="antojos" class="reveal" style="display:flex; gap:60px; flex-wrap:wrap;">
+<section id="antojos" class="reveal" style="display:flex; gap:60px; flex-wrap:wrap; position:relative;">
+  <svg class="doodle" width="80" height="80" viewBox="0 0 70 70" style="bottom:10px; right:-26px;" aria-hidden="true">
+    <path d="M35,63 C10,45 5,25 20,12 C28,5 35,10 35,20 C35,10 42,5 50,12 C65,25 60,45 35,63 Z" fill="none" stroke="var(--pink-deep)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
   <div class="wrap" style="display:flex; gap:60px; flex-wrap:wrap; padding:0;">
     <div style="flex:1 1 340px; min-width:280px;">
       <h2 style="font-size:34px; margin-bottom:10px;">Los antojos de los niños</h2>
@@ -240,11 +253,29 @@
 <section class="reveal">
   <div class="wrap">
     <h2 style="font-size:34px; margin-bottom:10px;">Las entregas, en fotos</h2>
-    <p style="font-size:16px; margin:0 0 32px 0; color:rgba(38,34,32,0.7);">[Espacio reservado &mdash; aquí van fotos y/o videos reales de las entregas, apenas los tengamos.]</p>
+    <p style="font-size:16px; margin:0 0 32px 0; color:rgba(38,34,32,0.7);">[Vista previa con material de prueba &mdash; se reemplaza por fotos y videos reales de las entregas apenas los tengamos.]</p>
     <div class="grid-3">
-      <div class="placeholder" style="background:rgba(169,217,232,0.25);">Foto de entrega</div>
-      <div class="placeholder" style="background:rgba(243,199,214,0.3);">Foto de entrega</div>
-      <div class="placeholder" style="background:rgba(185,217,138,0.3);">Video de entrega</div>
+      <div class="media-box">
+        <span class="media-tag">Video de prueba</span>
+        <video class="reveal-video" muted loop playsinline preload="metadata">
+          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="media-box">
+        <span class="media-tag">Video de prueba</span>
+        <video class="reveal-video" muted loop playsinline preload="metadata">
+          <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/friday.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="media-box" id="gallery-carousel">
+        <span class="media-tag">Fotos de prueba</span>
+        <img class="carousel-slide is-active" src="https://picsum.photos/id/1005/640/480" alt="Foto de prueba 1" loading="lazy">
+        <img class="carousel-slide" src="https://picsum.photos/id/1011/640/480" alt="Foto de prueba 2" loading="lazy">
+        <img class="carousel-slide" src="https://picsum.photos/id/1025/640/480" alt="Foto de prueba 3" loading="lazy">
+        <div class="carousel-dots">
+          <span class="dot is-active"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -258,7 +289,10 @@
   </div>
 </section>
 
-<section class="reveal" style="padding-top:20px; padding-bottom:90px; display:flex; justify-content:center;">
+<section class="reveal" style="padding-top:20px; padding-bottom:90px; display:flex; justify-content:center; position:relative;">
+  <svg class="doodle" width="70" height="70" viewBox="0 0 60 34" style="top:30%; left:-22px;" aria-hidden="true">
+    <path d="M30,0 C33,14 33,14 60,17 C33,20 33,20 30,34 C27,20 27,20 0,17 C27,14 27,14 30,0 Z" fill="none" stroke="var(--blue-deep)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
   <div style="max-width:720px; text-align:center;">
     <p style="font-family:'Permanent Marker', cursive; font-size:26px; margin:0 0 20px 0;">&ldquo;Acompáñenme en este camino. Ustedes son la parte fundamental para hacer posible cada una de estas sonrisas y momentos de comodidad.&rdquo;</p>
     <p style="font-size:15px; color:rgba(38,34,32,0.7); margin:0;">Para mí, la transparencia y la confianza lo son todo. Por eso, documento cada paso de este camino &mdash; las compras, el empaquetado y la entrega directa a las familias afectadas &mdash; a través de mis historias de Instagram.</p>
@@ -343,6 +377,51 @@
     reveals.forEach(function(el){ revealObserver.observe(el); });
   } else {
     reveals.forEach(function(el){ el.classList.add('is-visible'); });
+  }
+
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var videos = document.querySelectorAll('.reveal-video');
+  if (!reducedMotion && videos.length && 'IntersectionObserver' in window) {
+    var videoObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) entry.target.play().catch(function(){});
+        else entry.target.pause();
+      });
+    }, { threshold: 0.4 });
+    videos.forEach(function(v){ videoObserver.observe(v); });
+  }
+
+  var carousel = document.getElementById('gallery-carousel');
+  if (carousel && !reducedMotion) {
+    var slides = carousel.querySelectorAll('.carousel-slide');
+    var dots = carousel.querySelectorAll('.dot');
+    var current = 0;
+    var timer = null;
+    function showSlide(i){
+      slides[current].classList.remove('is-visible', 'is-active');
+      dots[current].classList.remove('is-active');
+      current = i % slides.length;
+      slides[current].classList.add('is-active');
+      dots[current].classList.add('is-active');
+    }
+    function startCarousel(){
+      if (timer) return;
+      timer = setInterval(function(){ showSlide(current + 1); }, 3200);
+    }
+    function stopCarousel(){
+      clearInterval(timer);
+      timer = null;
+    }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) startCarousel();
+          else stopCarousel();
+        });
+      }, { threshold: 0.3 }).observe(carousel);
+    } else {
+      startCarousel();
+    }
   }
 </script>
 
